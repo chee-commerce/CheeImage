@@ -19,7 +19,6 @@ class ImageServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('chee/image');
-		$this->app['image']->hell();
 	}
 
 	/**
