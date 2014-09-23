@@ -28,9 +28,9 @@ class ImageServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app['image'] = $this->app->share(function($app)
+		$this->app['chee-image'] = $this->app->share(function($app)
 		{
-			return new Image($app);
+			return new CheeImage($app);
 		});
 	}
 
@@ -41,7 +41,7 @@ class ImageServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('image');
+		return array('chee-image');
 	}
 
 }

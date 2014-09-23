@@ -6,13 +6,13 @@ use Illuminate\Foundation\Application;
 * Image for manage images
 * @author Chee   
 */
-class Image
+class CheeImage
 {
-	/**
-	* IoC
-	* @var Illuminate\doundination\Application
-	*/
-	protected $app;
+  /**
+  * IoC
+  * @var Illuminate\doundination\Application
+  */
+  protected $app;
     
     /**
     * Initialize class
@@ -87,8 +87,8 @@ class Image
             case 'image/jpeg':
             case 'image/jpg':
               $file = $dest . '/' . $image_size -> image_size_name . '_' . $postfix . '.' . $img_path_parts['extension'];
-              if(File::exists($file)) {
-                  File::delete($file);
+              if($this->app['files']->exists($file)) {
+                  $this->app['files']->delete($file);
               }
               imagejpeg($thumb, $file, $image_size -> image_size_quality);
               break;
@@ -122,17 +122,17 @@ class Image
   }
   
   /** 
-  	*get all record from `image_size` table
-  	* @param string 
-	*
+    *get all record from `image_size` table
+    * @param string 
+  *
   */
   protected static function getAllImageSizes($image_size_name = null) 
   {
     if(is_null($image_size_name)) {
         
-        $image_sizes = ImageSize::all();
+        $image_sizes = \ImageSize::all();
     } else {
-        $image_sizes = ImageSize::where('image_size_name', $image_size_name) -> get();
+        $image_sizes = \ImageSize::where('image_size_name', $image_size_name) -> get();
     }
     
     foreach($image_sizes as $image_size) {
