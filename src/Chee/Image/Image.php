@@ -50,9 +50,8 @@ class Image
    *
    * @throws ErrorException
    */  
-  public static function generateImages($source, $dest, $type, $postfix = "", $image_size_name = null) 
+  public function generateImages($source, $dest, $type, $postfix = "", $image_size_name = null) 
   {
-    dd($this->app);
     $img_sizes = array();
     $image_sizes = self::getAllImageSizes($image_size_name);
     foreach($image_sizes as $image_size) {
