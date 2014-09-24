@@ -10,6 +10,6 @@ class CheeImage extends Facade {
      * @return string
      */
     protected static function getFacadeAccessor() {
-        return 'image';
+        return 'chee-image';
     }
 }
