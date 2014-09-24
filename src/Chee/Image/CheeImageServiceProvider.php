@@ -2,7 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class ImageServiceProvider extends ServiceProvider {
+class CheeImageServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.

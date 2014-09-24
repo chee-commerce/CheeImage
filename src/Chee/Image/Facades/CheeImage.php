@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 
-class Image extends Facade {
+class CheeImage extends Facade {
 
     /**
      * Get the registered name of the component
