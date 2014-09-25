@@ -36,9 +36,23 @@ class CheeImage
         
     }
     
-    public static function deleteFile()
+    /**
+     * delete files 
+     * @param string or array . 
+     */
+    public function deleteFile($filePath)
     {
-        
+        $this->app['files']->delete($filePath);
+    }
+    
+    /**
+     * delete directory
+     * @param string
+     * @return bool
+     */
+    public static function deleteDirectory($path)
+    {
+       return $this->app['files']->deleteDirectory($path);
     }
     
     /**
