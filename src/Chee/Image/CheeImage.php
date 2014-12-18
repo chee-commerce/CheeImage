@@ -1,6 +1,7 @@
 <?php namespace Chee\Image;
 
 use Illuminate\Foundation\Application;
+use Illuminate\Support\MessageBag;
 
 /**
 * Image for manage images
@@ -71,6 +72,8 @@ class CheeImage
 
   public function __construct($image)
   {
+    $this->errors = new MessageBag;
+
     // check image
     if(!self::isRealImage($image))  
     {
@@ -192,9 +195,9 @@ class CheeImage
     return $this->height;
   }
 
-  public function getMessage()
+  public function getErrors()
   {
-    return (array) $this->errors;
+    return $this->errors;
   }
 
   /**
@@ -211,7 +214,7 @@ class CheeImage
 
   private function pushErrors($error)
   {
-    array_push($this->errors, (string) $error);
+    $this->errors->add($error);
   }
 
   /**
